@@ -27,6 +27,7 @@
 		/*gap: 1rem;*/
 		position:relative;
 		user-select: none;
+		opacity:0.2;
 	}
 
 	.marquee-logos {
