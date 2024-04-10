@@ -1,0 +1,78 @@
+<div id="testimonial-container" class="testimonials">
+	<div class="testimonials-box">
+		<div class="testimonial testimonial-layout-v2">
+			<div class="testimonial-image">
+		</div>
+		<div class="testimonial-body">
+			Text Testimonial 1
+		</div>
+		<div class="testimonial-footer">
+			<div class="testimonial-image">
+			</div>
+			<div class="testimonial-name">
+				<div>
+					<strong>Maria Schulz</strong>
+				</div>
+				<div class="testimonial-description">Kunde</div>
+			</div>
+		</div>
+	</div>
+	<div class="testimonial testimonial-layout-v2">
+		<div class="testimonial-image"></div>
+		<div class="testimonial-body">
+			Text Testimonial 2
+	</div>
+	<div class="testimonial-footer">
+		<div class="testimonial-image">
+		</div>
+		<div class="testimonial-name">
+			<div>
+				<strong>Patrick Müller</strong>
+			</div>
+			<div class="testimonial-description">Kunde
+			</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<style>
+
+	.testimonial testimonial-layout-v2 {
+		color:#02346fff;
+		border-radius:25px;
+		background-color:#ffffff;
+		margin-top:20px;
+		width:calc(95%);
+		border-color:#ffffff
+	}
+
+	.testimonial-image {
+		border-radius:0;
+		width:175px;
+		height:125px;
+		background-image:url(url);
+		background-size:cover;
+		background-position:center
+	}
+
+	.testimonial-name {
+		color:#02346fff;
+	}
+
+
+
+	.testimonials-box .testimonial.testimonial-layout-v2 .testimonial-body {
+	    border-color: #f4f8ff;
+	    border-radius: 2px;
+	    color: #192b47;
+	    line-height: 1.7;
+	    margin-bottom: 20px;
+	    margin-top: 15px;
+	    padding: 10px 15px;
+	}
+
+
+</style>
