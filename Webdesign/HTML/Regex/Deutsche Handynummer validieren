@@ -1,0 +1,16 @@
+(^\+491[5-7][0-9])([0-9]{7,8})|(^01[5-7][0-9])([0-9]{7,8})
+
+-----------------------------
+#Beginn der Vorwahlgruppe
+(^\+491 // (^01
+Muss mit +491 beginnen // Muss mit 01 beginnen
+[5-7] // [5-7]
+Folgende Zahl muss zwischen 5 und 7 liegen
+[0-9]) // [0-9])
+Folgende Zahl muss zwischen 0 und 9 liegen
+#Ende der Vorwahlgruppe
+
+#Beginn der Handynummerngruppe
+([0-9]{7,8}) // ([0-9]{7,8})
+Muss 7 bis 8 Stellen besitzen und darf nur zwischen 0 und 9 liegen
+#Ende der Handynummerngruppe
