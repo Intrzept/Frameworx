@@ -1,0 +1,101 @@
+<!-- Beginn JS zum ausblenden der Box -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const newsletterBox = document.querySelector('.newsletter-box');
+  const closeNewsletterSignup = document.querySelector('label[for=close-box]');
+  const hideNewsletterSignup = document.getElementById('close-box');
+
+  newsletterBox.style.display = 'none'; // Newsletterbox vorerst versteckt
+  closeNewsletterSignup.style.display = 'none'; // X vorerst versteckt
+
+  document.addEventListener('scroll', function () {
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    const triggerHeight = document.documentElement.scrollHeight * 0.05;
+
+    if (scrollPosition > triggerHeight) {
+      // Wenn der Benutzer mehr als 5% herunterscrollt
+      if (!hideNewsletterSignup.checked) { // Nur wenn die Checkbox nicht markiert ist
+        newsletterBox.style.display = 'block';
+        closeNewsletterSignup.style.display = 'block';
+      }
+    } else {
+      newsletterBox.style.display = 'none';
+      closeNewsletterSignup.style.display = 'none';
+    }
+  });
+
+  // Behalten Sie das vorhandene EventListener für die Checkbox bei
+  hideNewsletterSignup.addEventListener('change', function () {
+    if (this.checked) {
+      newsletterBox.style.display = 'none';
+      closeNewsletterSignup.style.display = 'none';
+    } else {
+      newsletterBox.style.display = 'block';
+      closeNewsletterSignup.style.display = 'block';
+    }
+  });
+});
+</script>
+<!-- Ende JS zum ausblenden der Box -->
+
+<!-- Beginn CSS für Newsletter-Box -->
+<style>
+  /* Checkbox Hack */
+
+  .hideNewsletterSignup {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    height: 52px;
+
+  }
+
+  .closeNewsletterSignup {
+    -webkit-appearance: push-button;
+    -moz-appearance: button;
+    display: inline-block;
+    /*margin: 60px 0 10px 0;*/
+    cursor: pointer;
+  }
+
+  /* Toggled State */
+  .hideNewsletterSignup:checked~.newsletter-box {
+    display: none;
+  }
+
+  .hideNewsletterSignup:checked~.closeNewsletterSignup {
+    display: none;
+  }
+
+  .newsletter-box {
+    position: fixed;
+    top: calc(50% - 111px) !important;
+    right: 0px !important;
+    width: 300px !important;
+    height: 300px !important;
+    cursor: pointer;
+    z-index: 998;
+  }
+
+  .newsletter-box-close {
+    position: fixed;
+    top: calc(50% - 100px) !important;
+    right: 240px !important;
+    width: 64px !important;
+    height: 64px !important;
+    cursor: pointer;
+    z-index: 999;
+  }
+</style>
+<!-- Ende CSS für Newsletter-Box -->
+
+<!-- Beginn HTML-Code für Newsletter-Box -->
+<label for="close-box" class="closeNewsletterSignup">
+  <img class="newsletter-box-close" src="url-closing-image">
+</label>
+<input type="checkbox" id="close-box" class="hideNewsletterSignup">
+<div class="newsletter-box">
+  <a href="https://wa.me/49xxxxxxxxxxx"><img class="newsletter-box" src="url-background-image"
+      alt="Anmelden zum Newsletter"></a>
+</div>
+<!-- Ende HTML-Code für Newsletter-Box -->
