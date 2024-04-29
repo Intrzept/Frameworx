@@ -44,9 +44,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   .hideNewsletterSignup {
     position: absolute;
-    top: -9999px;
-    left: -9999px;
+/*  top: -9999px;
+    left: -9999px;*/
     height: 52px;
+    display:none;
 
   }
 
