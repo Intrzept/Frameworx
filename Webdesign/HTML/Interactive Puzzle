@@ -1,0 +1,171 @@
+<style>
+    .container-interactive {
+        display: flex;
+        height: 500px;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+    }
+
+    .puzzle-piece {
+        position: absolute;
+        margin: 10px;
+        cursor: pointer;
+        transition: transform 1s;
+    }
+
+    .text {
+        font-family: Sans-serif;
+        position: absolute;
+        display: none;
+        font-size: 1.2em;
+        padding: 5px;
+        width: 450px;
+        height: 225px;
+    }
+
+    .puzzlePieceContainer {
+        position: relative;
+    }
+
+    #puzzlePiece1 {
+        max-width: 182px;
+        max-height: 160px;
+        top: -15rem;
+        left: -200px;
+    }
+
+    #text1 {
+        top: -18rem;
+        left: -50rem;
+    }
+
+    #puzzlePiece2 {
+        max-height: 182px;
+        max-width: 160px;
+        top: -15rem;
+        left: -35px;
+    }
+
+    #text2 {
+        top: -18rem;
+        left: -2rem;
+    }
+
+    #puzzlePiece3 {
+        max-height: 182px;
+        max-width: 160px;
+        left: -200px;
+        top: -1rem;
+    }
+
+    #text3 {
+        top: 8rem;
+        left: -50rem;
+    }
+
+    #puzzlePiece4 {
+        max-width: 182px;
+        max-height: 160px;
+        top: 1.4rem;
+        left: -59px;
+    }
+
+    #text4 {
+        top: 8rem;
+        left: -2rem;
+    }
+
+    .text-left {
+        text-align: left;
+    }
+
+    .text-right {
+        text-align: right;
+    }
+
+    .text h1 {
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .text h2 {
+        font-size: 34px;
+        margin: 0 0 10px 0;
+    }
+</style>
+<div class="container-interactive">
+    <div class="puzzlePieceContainer">
+        <img src="https://static.funnelcockpit.com/upload/nLP6jKN8KEgDpnLc4/c906a787f9d10210ca08dd25441b92c9.png"
+            alt="Betriebsrente Puzzleteil" class="puzzle-piece" id="puzzlePiece1">
+        <div class="text text-left" id="text1">
+            <h1>Betriebsrente</h1>
+            <h2>Betriebliche Altersvorsorge</h2>
+            <p>Sichert den Lebensstandard der Mitarbeiter im Alter und zeigt Wertschätzung gegenüber der Mitarbeiter und
+                fördert Bindung an den Pflegedienst.</p>
+        </div>
+    </div>
+    <div class="puzzlePieceContainer">
+        <img src="https://static.funnelcockpit.com/upload/nLP6jKN8KEgDpnLc4/f5ff7ad748e4516b968b57d1a10eb86e.png"
+            alt="Betriebsrente Puzzleteil" class="puzzle-piece" id="puzzlePiece2">
+        <div class="text text-right" id="text2">
+            <h1>Extra-Zeit</h1>
+            <h2>Zeitwertkonten</h2>
+            <p>Ein Arbeitszeitmodell, bei dem geleistet Arbeitsstunden für später "angespart" werden.
+                Dies kann für einen früheren Ruhestand oder ein Sabbatcial ermöglichen.</p>
+        </div>
+    </div>
+    <div class="puzzlePieceContainer">
+        <img src="https://static.funnelcockpit.com/upload/nLP6jKN8KEgDpnLc4/f947f27edaf2d8090a7d495dabb5036f.png"
+            alt="Betriebsrente Puzzleteil" class="puzzle-piece" id="puzzlePiece3">
+        <div class="text text-left" id="text3">
+            <h1>Gesundheit-Plus</h1>
+            <h2>Betriebliche Krankenversicherung</h2>
+            <p>Eine vom Arbeitgeber finanzierte Krankenversicherung. Diese erweitert die Leistung der gesetzlichen
+                Krankenversicherung und bietet hochwertigen Gesundheitsschutz.</p>
+        </div>
+    </div>
+    <div class="puzzlePieceContainer">
+        <img src="https://static.funnelcockpit.com/upload/nLP6jKN8KEgDpnLc4/65db5bdf312d3b8fd0bcb7fd1de441f0.png"
+            alt="Betriebsrente Puzzleteil" class="puzzle-piece" id="puzzlePiece4">
+        <div class="text text-right" id="text4">
+            <h1>Unfall-Airbag</h1>
+            <h2>Betriebliche Unfallversicherung</h2>
+            <p>Sichert die Mitarbeiter gegen finanzielle Folgen durch einen Unfall in der Arbeits- und Freizeit ab.
+                Ergänz die gesetzliche Unfallversicherung und sorgt für umfassenden Schutz.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.puzzle-piece').forEach(puzzlePiece => {
+        puzzlePiece.addEventListener('click', () => {
+            const textElement = puzzlePiece.nextElementSibling;
+            if (!puzzlePiece.classList.contains('moved')) {
+                switch (puzzlePiece.id) {
+                    case 'puzzlePiece1':
+                        puzzlePiece.style.transform = 'translate(-500px, -75px) rotate(-360deg)';
+                        break;
+                    case 'puzzlePiece2':
+                        puzzlePiece.style.transform = 'translate(500px, -75px) rotate(360deg)';
+                        break;
+                    case 'puzzlePiece3':
+                        puzzlePiece.style.transform = 'translate(-500px, 75px) rotate(360deg)';
+                        break;
+                    case 'puzzlePiece4':
+                        puzzlePiece.style.transform = 'translate(500px, 75px) rotate(-360deg)';
+                        break;
+                }
+                puzzlePiece.classList.add('moved');
+                setTimeout(() => {
+                    textElement.style.display = 'block';
+                }, 1000);
+            } else {
+                textElement.style.display = 'none';
+                puzzlePiece.style.transform = 'translate(0, 0) rotate(0deg)';
+                puzzlePiece.classList.remove('moved');
+            }
+        });
+    });
+</script>
